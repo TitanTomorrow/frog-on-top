@@ -1,4 +1,4 @@
-# Frog On Top — frogon.top
+# Frog On Top
 
 Marketing site for **Frog On Top**, a CNC machining shop for metal and plastic parts.
 
@@ -25,22 +25,25 @@ npm run lint
 | Forest scenery / treeline dividers | `src/graphics/ForestBackground.tsx` |
 | Quote-form submission | `src/lib/inquiries.ts` |
 
-## Deploy to GitHub Pages (frogon.top)
+## Deploy to GitHub Pages
 
-Deployment is automatic on every push to `main` via `.github/workflows/deploy.yml`.
+Live at **https://titantomorrow.github.io/frog-on-top/**.
 
-One-time setup:
+Deployment is automatic on every push to `main` via `.github/workflows/deploy.yml`
+(repo **Settings → Pages → Source** is set to **GitHub Actions**).
 
-1. Create a GitHub repository and push this project to its `main` branch.
-2. In the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. In **Settings → Pages → Custom domain**, enter `frogon.top` and save. (`public/CNAME` already contains it.)
-4. At your domain registrar, add DNS records for `frogon.top`:
-   - `A` records → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `AAAA` records → `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - `CNAME` record for `www` → `<your-github-username>.github.io`
-5. Once DNS has propagated and the certificate is issued, tick **Enforce HTTPS**.
+Because the site lives under the `/frog-on-top/` path, `vite.config.ts` sets `base: '/frog-on-top/'`.
+Local `npm run dev` / `npm run preview` serve it at `http://localhost:5173/frog-on-top/` likewise.
 
-Optional but recommended: verify the domain under your GitHub account's **Settings → Pages** to prevent takeover.
+### Switching to the frogon.top domain later
+
+1. In `vite.config.ts`, change `base` to `'/'`; create `public/CNAME` containing `frogon.top`; update the canonical/og URLs in `index.html` and `site.url` in `src/config/site.ts`.
+2. In **Settings → Pages → Custom domain**, enter `frogon.top`.
+3. At your registrar, point DNS at GitHub Pages:
+   - `A` records for `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `AAAA` records for `@` → `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
+   - `CNAME` for `www` → `titantomorrow.github.io`
+4. Once the certificate is issued, tick **Enforce HTTPS**.
 
 ## Adding Firebase (contact form → Firestore)
 

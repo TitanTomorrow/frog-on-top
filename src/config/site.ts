@@ -6,7 +6,7 @@
 export const site = {
   name: 'Frog On Top',
   domain: 'frogon.top',
-  url: 'https://frogon.top',
+  url: 'https://titantomorrow.github.io/frog-on-top/',
   tagline: 'Precision CNC machining in metal & plastic',
   description:
     'Frog On Top machines precise metal and plastic parts — from one-off prototypes to production runs — with clear quotes and careful inspection.',
