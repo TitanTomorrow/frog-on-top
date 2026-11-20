@@ -7,9 +7,9 @@ export const site = {
   name: 'Frog On Top',
   domain: 'frogon.top',
   url: 'https://titantomorrow.github.io/frog-on-top/',
-  tagline: 'Precision CNC machining in metal & plastic',
+  tagline: 'CNC laser cutting, bending & welding',
   description:
-    'Frog On Top machines precise metal and plastic parts — from one-off prototypes to production runs — with clear quotes and careful inspection.',
+    'Frog On Top laser-cuts, bends and welds metal parts for prototypes and small runs of up to five — with clear quotes and careful inspection.',
   email: 'hello@frogon.top', // PLACEHOLDER — confirm this inbox exists
   phone: '(555) 010-0100', // PLACEHOLDER
   location: 'Your City, State', // PLACEHOLDER
@@ -24,7 +24,7 @@ export const nav = [
   { label: 'Contact', href: '#contact' },
 ] as const
 
-export type ServiceIcon = 'mill' | 'lathe' | 'plastic' | 'prototype' | 'finish' | 'inspect'
+export type ServiceIcon = 'laser' | 'bend' | 'weld' | 'prototype' | 'finish' | 'inspect'
 
 export interface Service {
   icon: ServiceIcon
@@ -35,34 +35,34 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    icon: 'mill',
-    title: 'CNC Milling',
-    description: 'Prismatic parts cut from solid stock — housings, brackets, plates, fixtures and enclosures.',
-    points: ['Pockets, profiles, slots & threads', 'Tight-tolerance bores', 'Engraving & part marking'],
+    icon: 'laser',
+    title: 'CNC Laser Cutting',
+    description: 'Flat profiles cut straight from your drawing — brackets, plates, panels and gussets.',
+    points: ['Complex profiles & cutouts', 'Holes, slots & tabs', 'Cut from DXF, STEP or PDF'],
   },
   {
-    icon: 'lathe',
-    title: 'CNC Turning',
-    description: 'Round parts with concentric features — shafts, bushings, spacers, pins and fittings.',
-    points: ['OD / ID turning & facing', 'Threads, grooves & knurls', 'Concentricity-critical work'],
+    icon: 'bend',
+    title: 'CNC Bending',
+    description: 'Press-brake forming that turns flat blanks into brackets, channels, boxes and enclosures.',
+    points: ['Accurate, repeatable angles', 'Flanges, channels & U-bends', 'Flat patterns checked before cutting'],
   },
   {
-    icon: 'plastic',
-    title: 'Plastic Machining',
-    description: 'Engineering plastics cut cool and clean — crisp edges, no melting, no stress cracks.',
-    points: ['Delrin, nylon, PEEK & UHMW', 'Clear acrylic & polycarbonate', 'Low-stress fixturing'],
+    icon: 'weld',
+    title: 'CNC Welding',
+    description: 'Automated welding that joins cut and formed parts into strong, consistent assemblies.',
+    points: ['Consistent, repeatable welds', 'Seams, joints & corners', 'Frames, brackets & assemblies'],
   },
   {
     icon: 'prototype',
-    title: 'Prototypes & Short Runs',
-    description: 'From a single proof-of-concept part to small production batches, without tooling costs.',
-    points: ['One-off prototypes', 'Batch & repeat orders', 'Design-for-manufacturing feedback'],
+    title: 'Prototypes & Small Runs',
+    description: 'Built for prototyping — a single part or a small run of up to five, with no tooling costs.',
+    points: ['One-off prototypes', 'Runs of 5 parts or fewer', 'Design-for-manufacturing feedback'],
   },
   {
     icon: 'finish',
-    title: 'Finishing & Secondary Ops',
-    description: 'Parts that arrive ready to use, not ready for more work.',
-    points: ['Deburring & edge breaks', 'Bead blast & brushed finishes', 'Tapping & threaded inserts'],
+    title: 'Post-Processing',
+    description: 'Parts arrive clean, smooth and safe to handle.',
+    points: ['Deburring', 'Bead blasting', 'Vibratory tumbling'],
   },
   {
     icon: 'inspect',
@@ -72,35 +72,20 @@ export const services: Service[] = [
   },
 ]
 
-export const materials = {
-  metals: [
-    'Aluminum 6061',
-    'Aluminum 7075',
-    'Mild steel 1018',
-    'Stainless 303 / 304',
-    'Stainless 316',
-    'Brass 360',
-    'Copper 110',
-    'Tool steel (on request)',
-  ],
-  plastics: [
-    'Delrin / Acetal',
-    'Nylon 6/6',
-    'PEEK',
-    'UHMW-PE',
-    'HDPE',
-    'PTFE (Teflon)',
-    'Acrylic (PMMA)',
-    'Polycarbonate',
-  ],
-} as const
+export const materials = [
+  'Mild steel',
+  'Stainless 304',
+  'Stainless 316',
+  'Aluminum 5052',
+  'Aluminum 6061',
+] as const
 
 export type StepFrog = 'wave' | 'calipers' | 'machine' | 'box'
 
 export const steps: { title: string; description: string; frog: StepFrog }[] = [
   {
     title: 'Send your drawing',
-    description: 'Share a STEP, IGES or PDF drawing along with quantity, material and finish.',
+    description: 'Share a DXF, STEP or PDF drawing along with quantity (1–5), material, thickness and finish.',
     frog: 'wave',
   },
   {
@@ -109,22 +94,22 @@ export const steps: { title: string; description: string; frog: StepFrog }[] = [
     frog: 'calipers',
   },
   {
-    title: 'Machine & inspect',
-    description: 'Your parts are programmed, cut and measured against your drawing.',
+    title: 'Cut, bend & weld',
+    description: 'Your parts are laser-cut, formed, welded and measured against your drawing.',
     frog: 'machine',
   },
   {
     title: 'Packed & shipped',
-    description: 'Deburred, cleaned, carefully packed and on their way to you.',
+    description: 'Deburred, blasted or tumbled, carefully packed and on their way to you.',
     frog: 'box',
   },
 ]
 
 // PLACEHOLDER figures — replace with your shop's real capabilities.
 export const stats = [
-  { value: '±0.001″', label: 'Typical tolerance on critical features' },
+  { value: '±0.005″', label: 'Typical laser-cut tolerance' },
   { value: '5–10', label: 'Business days standard lead time' },
-  { value: '1–1,000', label: 'Parts per order, prototype to production' },
+  { value: '1–5', label: 'Parts per order — prototypes & small runs' },
   { value: '100%', label: 'Of parts inspected before shipping' },
 ] as const
 

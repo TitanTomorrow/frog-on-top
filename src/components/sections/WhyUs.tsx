@@ -12,7 +12,7 @@ export function WhyUs() {
             align="left"
             eyebrow={`Why ${site.name}`}
             title="A small shop that sweats the details"
-            description="You get the attention of a dedicated machinist and the consistency of a well-run process."
+            description="You get the attention of a dedicated fabricator and the consistency of a well-run process."
           />
           <ul className="mt-10 space-y-6">
             {values.map((v) => (

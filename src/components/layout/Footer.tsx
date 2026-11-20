@@ -13,7 +13,7 @@ export function Footer() {
             <FrogMark className="h-9 w-9" />
             <span className="font-display text-xl font-semibold text-mist-50">{site.name}</span>
           </a>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed">{site.tagline}. Prototypes to production, made with care.</p>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed">{site.tagline}. Prototypes and small runs, made with care.</p>
         </div>
 
         <nav aria-label="Footer">

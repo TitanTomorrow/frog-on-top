@@ -10,7 +10,7 @@ export function Services() {
           id="services-title"
           eyebrow="Services"
           title="Everything your part needs, under one roof"
-          description="From the first chip to final inspection, we handle the details so your parts fit, function and look right."
+          description="From the first laser cut to final inspection, we handle the details so your parts fit, function and look right."
         />
 
         <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -21,30 +21,32 @@ function Icon({ children, ...props }: IconProps) {
 }
 
 const servicePaths: Record<ServiceIcon, ReactNode> = {
-  // spindle, end mill and workpiece
-  mill: (
+  // laser head, beam and sparks on a sheet
+  laser: (
     <>
-      <path d="M8.5 2.5h7v4h-7z" />
-      <path d="M10.5 6.5v6.5l1.5 1.5 1.5-1.5V6.5" />
-      <path d="M10.5 9l3-1.2M10.5 11.5l3-1.2" />
-      <path d="M3 17h18v4H3z" />
-      <path d="M7 17v-1.5h6" />
+      <path d="M9 2.5h6v5H9z" />
+      <path d="M10 7.5l2 3 2-3" />
+      <path d="M12 10.5v6" />
+      <path d="M8.5 15l-1.5-1.5M15.5 15l1.5-1.5" />
+      <path d="M3 17.5h18v3H3z" />
     </>
   ),
-  // chuck jaws and a turned part
-  lathe: (
+  // press-brake punch forming a sheet into a V-die
+  bend: (
     <>
-      <path d="M2.5 6.5h5v11h-5z" />
-      <path d="M7.5 9h4v6h-4" />
-      <path d="M11.5 10h6l3.5 2-3.5 2h-6" />
-      <path d="M14.5 10v4" />
+      <path d="M10 2.5h4v10.5l-2 3.5-2-3.5z" />
+      <path d="M3 13l9 4 9-4" />
+      <path d="M3 21v-4.5h4.5l4.5 3 4.5-3H21V21z" />
     </>
   ),
-  // polymer hexagon
-  plastic: (
+  // welding torch laying a bead between two plates
+  weld: (
     <>
-      <path d="M12 2.5l8.2 4.75v9.5L12 21.5l-8.2-4.75v-9.5z" />
-      <path d="M12 8l3.9 2.25v4.5L12 17l-3.9-2.25v-4.5z" />
+      <path d="M15.5 2.5l4 2.4-4.6 7.8-4-2.4z" />
+      <path d="M10.9 10.3L12 15l2.9-2.3" />
+      <path d="M8 14.5l-1.5-1.2M7.5 17l-2 .2" />
+      <path d="M3 18h7.5M13.5 18H21M3 21h18" />
+      <path d="M10.5 18a1.5 1.5 0 0 1 3 0" />
     </>
   ),
   // isometric part

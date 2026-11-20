@@ -10,7 +10,7 @@ function StepIllustration({ kind }: { kind: StepFrog }) {
     case 'calipers':
       return <Frog accessories={['calipers']} className={cls} />
     case 'machine':
-      return <Frog accessories={['goggles', 'endmill']} className={cls} />
+      return <Frog accessories={['goggles']} className={cls} />
     case 'box':
       return <Frog accessories={['box']} className={cls} />
   }

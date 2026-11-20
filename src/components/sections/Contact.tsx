@@ -9,6 +9,8 @@ import { SectionHeading } from '../ui/SectionHeading'
 type FormValues = Required<Inquiry>
 type Errors = Partial<Record<keyof FormValues, string>>
 
+const quantities = ['1', '2', '3', '4', '5'] as const
+
 const empty: FormValues = { name: '', email: '', company: '', material: '', quantity: '', message: '' }
 
 function validate(v: FormValues): Errors {
@@ -16,7 +18,6 @@ function validate(v: FormValues): Errors {
   if (!v.name.trim()) e.name = 'Please enter your name.'
   if (!v.email.trim()) e.email = 'Please enter your email.'
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email.trim())) e.email = 'That email doesn’t look quite right.'
-  if (v.quantity && !/^\d[\d,]*$/.test(v.quantity.trim())) e.quantity = 'Use a whole number, e.g. 25.'
   if (v.message.trim().length < 10) e.message = 'Tell us a little about your part (at least 10 characters).'
   return e
 }
@@ -84,7 +85,7 @@ export function Contact() {
           <div className="mt-8 flex items-center gap-4 rounded-2xl bg-fern-100 p-5">
             <Frog waving accessories={['goggles']} className="h-24 w-24 shrink-0" />
             <p className="text-sm leading-relaxed text-forest-900/80">
-              Have CAD files ready? Send STEP, IGES or PDF drawings with your request — it’s the fastest way to an
+              Have CAD files ready? Send DXF, STEP or PDF drawings with your request — it’s the fastest way to an
               accurate quote.
             </p>
           </div>
@@ -158,32 +159,24 @@ export function Contact() {
               <Field label="Material" htmlFor="field-material">
                 <select {...field('material')} onChange={(e) => update('material', e.target.value)}>
                   <option value="">Not sure yet</option>
-                  <optgroup label="Metals">
-                    {materials.metals.map((m) => (
-                      <option key={m}>{m}</option>
-                    ))}
-                  </optgroup>
-                  <optgroup label="Plastics">
-                    {materials.plastics.map((m) => (
-                      <option key={m}>{m}</option>
-                    ))}
-                  </optgroup>
+                  {materials.map((m) => (
+                    <option key={m}>{m}</option>
+                  ))}
                   <option>Other</option>
                 </select>
               </Field>
               <Field label="Quantity" error={errors.quantity} htmlFor="field-quantity">
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  placeholder="e.g. 25"
-                  {...field('quantity')}
-                  onChange={(e) => update('quantity', e.target.value)}
-                />
+                <select {...field('quantity')} onChange={(e) => update('quantity', e.target.value)}>
+                  <option value="">Not sure yet</option>
+                  {quantities.map((q) => (
+                    <option key={q}>{q}</option>
+                  ))}
+                </select>
               </Field>
               <Field label="Project details" required error={errors.message} htmlFor="field-message" className="sm:col-span-2">
                 <textarea
                   rows={5}
-                  placeholder="What is the part, key dimensions or tolerances, finish, and when do you need it?"
+                  placeholder="What is the part, material thickness, key dimensions or tolerances, finish, and when do you need it?"
                   {...field('message')}
                   onChange={(e) => update('message', e.target.value)}
                 />

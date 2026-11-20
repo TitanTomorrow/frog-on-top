@@ -4,7 +4,7 @@ import { HeroMascot } from '../../graphics/HeroMascot'
 import { ArrowRightIcon, CheckIcon } from '../../graphics/icons'
 import { buttonClasses } from '../ui/buttonStyles'
 
-const highlights = ['Metal & plastic', 'Prototype to production', 'Every part inspected']
+const highlights = ['Laser cut · bent · welded', 'Prototypes & runs of 1–5', 'Every part inspected']
 
 export function Hero() {
   return (
@@ -20,19 +20,19 @@ export function Hero() {
         <div className="max-w-xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-forest-900/10 bg-mist-50/70 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-moss-600 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-moss-500" aria-hidden="true" />
-            CNC machining · {site.domain}
+            CNC fabrication · {site.domain}
           </p>
 
           <h1
             id="hero-title"
             className="mt-6 text-4xl leading-[1.08] font-semibold tracking-tight text-forest-900 sm:text-5xl lg:text-6xl"
           >
-            Precision parts, <span className="text-moss-600">machined with care.</span>
+            Precision parts, <span className="text-moss-600">fabricated with care.</span>
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-forest-900/75">
-            {site.name} machines metal and plastic parts to your drawing, from a single prototype to a full production run.
-            Clear quotes, tight tolerances and parts that arrive ready to use.
+            {site.name} laser-cuts, bends and welds metal parts to your drawing — for prototypes and small runs of up to
+            five. Clear quotes, careful work and parts that arrive ready to use.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
