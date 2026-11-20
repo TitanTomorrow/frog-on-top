@@ -2,7 +2,7 @@
 
 Marketing site for **Frog On Top**, a CNC fabrication shop (laser cutting, bending and welding) for metal prototypes and small runs of up to five parts.
 
-Built with **Vite + React + TypeScript + Tailwind CSS v4**. All illustrations (chibi frogs, forest, machined block, icons) are hand-built inline SVG components — no image assets.
+Built with **Vite + React + TypeScript + Tailwind CSS v4**. All illustrations (chibi frogs, forest, sheet-metal bracket, icons) are hand-built inline SVG components — no image assets.
 
 ## Develop
 

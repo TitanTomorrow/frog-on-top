@@ -39,14 +39,17 @@ const servicePaths: Record<ServiceIcon, ReactNode> = {
       <path d="M3 21v-4.5h4.5l4.5 3 4.5-3H21V21z" />
     </>
   ),
-  // welding torch laying a bead between two plates
+  // robotic arm with a welding torch over a seam
   weld: (
     <>
-      <path d="M15.5 2.5l4 2.4-4.6 7.8-4-2.4z" />
-      <path d="M10.9 10.3L12 15l2.9-2.3" />
-      <path d="M8 14.5l-1.5-1.2M7.5 17l-2 .2" />
-      <path d="M3 18h7.5M13.5 18H21M3 21h18" />
-      <path d="M10.5 18a1.5 1.5 0 0 1 3 0" />
+      <path d="M2.5 21h8M4.5 21v-2h4v2" />
+      <path d="M6.5 19l2-7.5" />
+      <path d="M8.5 11.5l7.5-4" />
+      <circle cx="8.5" cy="11.5" r="1.5" />
+      <circle cx="16" cy="7.5" r="1.5" />
+      <path d="M16.6 8.9l2 5.1" />
+      <path d="M13.5 20.5h8" />
+      <path d="M18.6 16.2v1.3M16.9 16.9l-.9.9M20.3 16.9l.9.9" />
     </>
   ),
   // isometric part

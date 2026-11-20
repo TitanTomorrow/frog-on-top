@@ -23,7 +23,7 @@ export function Process() {
         <SectionHeading
           id="process-title"
           eyebrow="How it works"
-          title="From drawing to doorstep in four steps"
+          title="From DXF to doorstep in four steps"
           description="A simple, transparent process — you always know where your parts are and what happens next."
         />
 

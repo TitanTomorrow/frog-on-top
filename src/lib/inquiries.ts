@@ -38,7 +38,7 @@ export async function submitInquiry(inquiry: Inquiry): Promise<DeliveryChannel> 
     '',
     inquiry.message,
     '',
-    '(Please attach your drawings / CAD files to this email.)',
+    '(Please attach your DXF files to this email.)',
   ].join('\n')
 
   const href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`

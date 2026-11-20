@@ -4,7 +4,7 @@ import { HeroMascot } from '../../graphics/HeroMascot'
 import { ArrowRightIcon, CheckIcon } from '../../graphics/icons'
 import { buttonClasses } from '../ui/buttonStyles'
 
-const highlights = ['Laser cut · bent · welded', 'Prototypes & runs of 1–5', 'Every part inspected']
+const highlights = ['Laser cut · CNC bent · robot welded', 'Prototypes & runs of 1–5', 'Every part inspected']
 
 export function Hero() {
   return (
@@ -31,7 +31,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-forest-900/75">
-            {site.name} laser-cuts, bends and welds metal parts to your drawing — for prototypes and small runs of up to
+            {site.name} laser-cuts, CNC-bends and robot-welds metal parts from your DXF files — for prototypes and small runs of up to
             five. Clear quotes, careful work and parts that arrive ready to use.
           </p>
 

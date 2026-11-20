@@ -7,14 +7,24 @@ export const site = {
   name: 'Frog On Top',
   domain: 'frogon.top',
   url: 'https://titantomorrow.github.io/frog-on-top/',
-  tagline: 'CNC laser cutting, bending & welding',
+  tagline: 'CNC laser cutting, bending & robotic welding',
   description:
-    'Frog On Top laser-cuts, bends and welds metal parts for prototypes and small runs of up to five — with clear quotes and careful inspection.',
+    'Frog On Top laser-cuts, CNC-bends and robot-welds metal parts for prototypes and small runs of up to five — with clear quotes and careful inspection.',
   email: 'hello@frogon.top', // PLACEHOLDER — confirm this inbox exists
   phone: '(555) 010-0100', // PLACEHOLDER
   location: 'Your City, State', // PLACEHOLDER
   hours: 'Mon–Fri · 8am–5pm', // PLACEHOLDER
 } as const
+
+/** Sheet thickness each process can handle. */
+export const thickness = {
+  laser: 'up to 6 mm (1/4″)',
+  bend: 'up to 3 mm (1/8″)',
+  weld: '0.5–3 mm (0.020″–1/8″)',
+} as const
+
+/** Capacity of the CNC press brake, in tons. */
+export const pressBrakeTons = 25
 
 export const nav = [
   { label: 'Services', href: '#services' },
@@ -37,20 +47,20 @@ export const services: Service[] = [
   {
     icon: 'laser',
     title: 'CNC Laser Cutting',
-    description: 'Flat profiles cut straight from your drawing — brackets, plates, panels and gussets.',
-    points: ['Complex profiles & cutouts', 'Holes, slots & tabs', 'Cut from DXF, STEP or PDF'],
+    description: `Flat profiles ${thickness.laser} thick, cut straight from your DXF — brackets, plates, panels and gussets.`,
+    points: ['Compressed-air cutting as standard', 'Nitrogen cutting available for oxide-free edges', 'Profiles, holes, slots & tabs'],
   },
   {
     icon: 'bend',
     title: 'CNC Bending',
-    description: 'Press-brake forming that turns flat blanks into brackets, channels, boxes and enclosures.',
-    points: ['Accurate, repeatable angles', 'Flanges, channels & U-bends', 'Flat patterns checked before cutting'],
+    description: `Computer-controlled forming on our ${pressBrakeTons}-ton CNC press brake — sheet ${thickness.bend} thick into brackets, channels, boxes and enclosures.`,
+    points: [`${pressBrakeTons}-ton CNC press brake`, 'Programmed, repeatable bend angles', 'Flanges, channels & U-bends'],
   },
   {
     icon: 'weld',
-    title: 'CNC Welding',
-    description: 'Automated welding that joins cut and formed parts into strong, consistent assemblies.',
-    points: ['Consistent, repeatable welds', 'Seams, joints & corners', 'Frames, brackets & assemblies'],
+    title: 'Robotic Welding',
+    description: `Welded by a programmed robotic arm — sheet ${thickness.weld} thick, joined into strong assemblies.`,
+    points: ['CNC robotic-arm welding', 'Consistent, repeatable welds', 'Frames, brackets & assemblies'],
   },
   {
     icon: 'prototype',
@@ -67,7 +77,7 @@ export const services: Service[] = [
   {
     icon: 'inspect',
     title: 'Quality Inspection',
-    description: 'Every part is checked against your drawing before it leaves the shop.',
+    description: 'Every part is checked against your DXF before it leaves the shop.',
     points: ['Calibrated measuring tools', 'First-article reports on request', 'Careful, protective packing'],
   },
 ]
@@ -84,8 +94,8 @@ export type StepFrog = 'wave' | 'calipers' | 'machine' | 'box'
 
 export const steps: { title: string; description: string; frog: StepFrog }[] = [
   {
-    title: 'Send your drawing',
-    description: 'Share a DXF, STEP or PDF drawing along with quantity (1–5), material, thickness and finish.',
+    title: 'Send your DXF',
+    description: 'Share your DXF files with quantity (1–5), material, thickness and finish.',
     frog: 'wave',
   },
   {
@@ -95,7 +105,7 @@ export const steps: { title: string; description: string; frog: StepFrog }[] = [
   },
   {
     title: 'Cut, bend & weld',
-    description: 'Your parts are laser-cut, formed, welded and measured against your drawing.',
+    description: 'Your parts are laser-cut, CNC-bent, robot-welded and measured against your DXF.',
     frog: 'machine',
   },
   {
@@ -116,7 +126,7 @@ export const stats = [
 export const values = [
   {
     title: 'Precision you can measure',
-    description: 'We hold the tolerances on your drawing and tell you up front if a feature will be a challenge.',
+    description: 'We hold the tolerances you specify and tell you up front if a feature will be a challenge.',
   },
   {
     title: 'Straight answers, fast',

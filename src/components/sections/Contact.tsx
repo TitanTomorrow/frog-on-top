@@ -1,5 +1,5 @@
 import { useState, type FormEvent, type ReactNode } from 'react'
-import { materials, site } from '../../config/site'
+import { materials, site, thickness } from '../../config/site'
 import { Frog } from '../../graphics/Frog'
 import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from '../../graphics/icons'
 import { submitInquiry, type DeliveryChannel, type Inquiry } from '../../lib/inquiries'
@@ -85,8 +85,8 @@ export function Contact() {
           <div className="mt-8 flex items-center gap-4 rounded-2xl bg-fern-100 p-5">
             <Frog waving accessories={['goggles']} className="h-24 w-24 shrink-0" />
             <p className="text-sm leading-relaxed text-forest-900/80">
-              Have CAD files ready? Send DXF, STEP or PDF drawings with your request — it’s the fastest way to an
-              accurate quote.
+              We work from DXF files only. Attach yours to your request — it’s the fastest way to an accurate
+              quote.
             </p>
           </div>
 
@@ -116,7 +116,7 @@ export function Contact() {
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-forest-900/70">
                 {sentVia === 'firestore'
                   ? 'Thanks — we’ll be in touch shortly.'
-                  : 'Your email app should have opened with your request filled in. Attach any drawings, then hit send.'}
+                  : 'Your email app should have opened with your request filled in. Attach your DXF files, then hit send.'}
               </p>
               {sentVia === 'email-client' && (
                 <p className="mt-3 text-xs text-forest-900/55">
@@ -176,7 +176,7 @@ export function Contact() {
               <Field label="Project details" required error={errors.message} htmlFor="field-message" className="sm:col-span-2">
                 <textarea
                   rows={5}
-                  placeholder="What is the part, material thickness, key dimensions or tolerances, finish, and when do you need it?"
+                  placeholder={`What is the part, material thickness, key dimensions or tolerances, finish, and when do you need it? Laser cutting ${thickness.laser}; bending ${thickness.bend}; robotic welding ${thickness.weld}. Need nitrogen cutting? Let us know.`}
                   {...field('message')}
                   onChange={(e) => update('message', e.target.value)}
                 />
