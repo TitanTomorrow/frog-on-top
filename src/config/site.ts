@@ -23,6 +23,12 @@ export const thickness = {
   weld: '0.5–3 mm (0.020″–1/8″)',
 } as const
 
+/** Largest part each process can handle. */
+export const maxSize = {
+  laser: '600 × 600 mm (24″ × 24″)',
+  bend: '840 mm (33″) wide',
+} as const
+
 /** Capacity of the CNC press brake, in tons. */
 export const pressBrakeTons = 25
 
@@ -48,13 +54,13 @@ export const services: Service[] = [
     icon: 'laser',
     title: 'CNC Laser Cutting',
     description: `Flat profiles ${thickness.laser} thick, cut straight from your DXF — brackets, plates, panels and gussets.`,
-    points: ['Compressed-air cutting as standard', 'Nitrogen cutting available for oxide-free edges', 'Profiles, holes, slots & tabs'],
+    points: ['Compressed-air cutting as standard', 'Nitrogen cutting available for oxide-free edges', `Parts up to ${maxSize.laser}`],
   },
   {
     icon: 'bend',
     title: 'CNC Bending',
     description: `Computer-controlled forming on our ${pressBrakeTons}-ton CNC press brake — sheet ${thickness.bend} thick into brackets, channels, boxes and enclosures.`,
-    points: [`${pressBrakeTons}-ton CNC press brake`, 'Programmed, repeatable bend angles', 'Flanges, channels & U-bends'],
+    points: [`${pressBrakeTons}-ton CNC press brake`, 'Programmed, repeatable bend angles', `Parts up to ${maxSize.bend}`],
   },
   {
     icon: 'weld',

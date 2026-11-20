@@ -1,5 +1,5 @@
 import { useState, type FormEvent, type ReactNode } from 'react'
-import { materials, site, thickness } from '../../config/site'
+import { materials, site } from '../../config/site'
 import { Frog } from '../../graphics/Frog'
 import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from '../../graphics/icons'
 import { submitInquiry, type DeliveryChannel, type Inquiry } from '../../lib/inquiries'
@@ -86,7 +86,11 @@ export function Contact() {
             <Frog waving accessories={['goggles']} className="h-24 w-24 shrink-0" />
             <p className="text-sm leading-relaxed text-forest-900/80">
               We work from DXF files only. Attach yours to your request — it’s the fastest way to an accurate
-              quote.
+              quote. Check our{' '}
+              <a href="#materials" className="font-medium text-moss-600 underline underline-offset-2 hover:text-moss-500">
+                thickness and size limits
+              </a>{' '}
+              first.
             </p>
           </div>
 
@@ -176,7 +180,7 @@ export function Contact() {
               <Field label="Project details" required error={errors.message} htmlFor="field-message" className="sm:col-span-2">
                 <textarea
                   rows={5}
-                  placeholder={`What is the part, material thickness, key dimensions or tolerances, finish, and when do you need it? Laser cutting ${thickness.laser}; bending ${thickness.bend}; robotic welding ${thickness.weld}. Need nitrogen cutting? Let us know.`}
+                  placeholder="What is the part, material and thickness, overall size, key dimensions or tolerances, finish, and when do you need it? Need nitrogen cutting? Let us know."
                   {...field('message')}
                   onChange={(e) => update('message', e.target.value)}
                 />

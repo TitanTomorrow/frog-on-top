@@ -1,4 +1,4 @@
-import { materials, pressBrakeTons, thickness } from '../../config/site'
+import { materials, maxSize, pressBrakeTons, thickness } from '../../config/site'
 import { PineRidge } from '../../graphics/ForestBackground'
 import { SectionHeading } from '../ui/SectionHeading'
 
@@ -39,17 +39,20 @@ export function Materials() {
           </ul>
 
           <h4 className="mt-8 font-sans text-xs font-semibold tracking-[0.18em] text-fern-300 uppercase">
-            Sheet thickness
+            Capacities
           </h4>
           <dl className="mt-3 divide-y divide-mist-100/10 text-sm">
             {[
-              ['CNC laser cutting', thickness.laser],
-              [`CNC bending (${pressBrakeTons}-ton press brake)`, thickness.bend],
-              ['Robotic welding', thickness.weld],
-            ].map(([process, range]) => (
+              { process: 'CNC laser cutting', thick: thickness.laser, size: `Parts up to ${maxSize.laser}` },
+              { process: `CNC bending (${pressBrakeTons}-ton press brake)`, thick: thickness.bend, size: `Parts up to ${maxSize.bend}` },
+              { process: 'Robotic welding', thick: thickness.weld },
+            ].map(({ process, thick, size }) => (
               <div key={process} className="flex items-baseline justify-between gap-4 py-2.5">
                 <dt className="text-mist-100/70">{process}</dt>
-                <dd className="text-right font-medium text-mist-50">{range}</dd>
+                <dd className="text-right font-medium text-mist-50">
+                  {thick} thick
+                  {size && <span className="block text-mist-100/70">{size}</span>}
+                </dd>
               </div>
             ))}
           </dl>
